@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Get Started | NAMKAATH{% endblock %}
+
+{% block content %}
+    <!-- Header -->
+    <div class="page-header animate-on-scroll">
+        <h1>Let's Make It Happen</h1>
+        <p style="color: var(--text-muted); font-size: 1.2rem;">Tell us about your vision or book a time to chat.</p>
+    </div>
+
+    <!-- Main Form Area -->
+    <div class="form-container">
+        
+        <!-- Left: Project Details -->
+        <div class="form-card animate-on-scroll">
+            <h3 class="form-section-title"><i class="fa-solid fa-lightbulb"></i> Describe Your Idea</h3>
+            <form onsubmit="event.preventDefault(); alert('Request submitted! We will confirm your appointment shortly.');">
+                <div class="input-grid">
+                    <div>
+                        <label class="custom-label">First Name</label>
+                        <input type="text" class="form-input" placeholder="John" required>
+                    </div>
+                    <div>
+                        <label class="custom-label">Last Name</label>
+                        <input type="text" class="form-input" placeholder="Doe" required>
+                    </div>
+                    <div class="full-width">
+                        <label class="custom-label">Email Address</label>
+                        <input type="email" class="form-input" placeholder="john@example.com" required>
+                    </div>
+                    <div>
+                        <label class="custom-label">Project Type</label>
+                        <select class="form-input">
+                            <option>Mobile App</option>
+                            <option>Web Platform</option>
+                            <option>AI Integration</option>
+                            <option>Digital Marketing</option>
+                            <option>Retail System</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="custom-label">Estimated Budget</label>
+                        <select class="form-input">
+                            <option>$1k - $5k</option>
+                            <option>$5k - $10k</option>
+                            <option>$10k - $50k</option>
+                            <option>$50k+</option>
+                        </select>
+                    </div>
+                    <div class="full-width">
+                        <label class="custom-label">Project Details</label>
+                        <textarea class="form-input" rows="6" placeholder="Describe your core features, target audience, and goals..."></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Submit Proposal</button>
+            </form>
+        </div>
+
+        <!-- Right: Appointment Booking -->
+        <div class="form-card animate-on-scroll" style="height: fit-content;">
+            <h3 class="form-section-title"><i class="fa-regular fa-calendar-check"></i> Book a Call</h3>
+            
+            <div class="calendar-fake">
+                <div class="calendar-header">
+                    <span>October 2023</span>
+                    <div>
+                        <i class="fa-solid fa-chevron-left" style="cursor: pointer; margin-right: 10px;"></i>
+                        <i class="fa-solid fa-chevron-right" style="cursor: pointer;"></i>
+                    </div>
+                </div>
+                <!-- Simple visual representation of dates -->
+                <div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; text-align: center; font-size: 0.8rem; color: var(--text-muted);">
+                    <span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span>
+                    <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+                    <span>8</span><span>9</span><span style="color: var(--primary); font-weight: bold;">10</span><span>11</span><span>12</span><span>13</span><span>14</span>
+                    <!-- ... -->
+                </div>
+            </div>
+
+            <div class="full-width">
+                <label class="custom-label">Select Available Time (Oct 10)</label>
+                <div class="booking-slots" id="timeSlots">
+                    <div class="time-slot">09:00 AM</div>
+                    <div class="time-slot">10:30 AM</div>
+                    <div class="time-slot">01:00 PM</div>
+                    <div class="time-slot">02:30 PM</div>
+                    <div class="time-slot">04:00 PM</div>
+                    <div class="time-slot">05:30 PM</div>
+                </div>
+            </div>
+            
+            <p style="margin-top: 1.5rem; font-size: 0.85rem; color: var(--text-muted); text-align: center;">
+                <i class="fa-solid fa-video"></i> Virtual Meeting via Google Meet
+            </p>
+        </div>
+
+    </div>
+{% endblock %}
+
+{% block extra_js %}
+    <script>
+        // Simple logic for selecting time slots
+        const slots = document.querySelectorAll('.time-slot');
+        slots.forEach(slot => {
+            slot.addEventListener('click', () => {
+                slots.forEach(s => s.classList.remove('selected'));
+                slot.classList.add('selected');
+            });
+        });
+    </script>
+{% endblock %}

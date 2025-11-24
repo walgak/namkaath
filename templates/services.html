@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Our Services | NAMKAATH{% endblock %}
+
+{% block content %}
+    <!-- Header -->
+    <header class="page-header animate-on-scroll">
+        <h1>Comprehensive Solutions</h1>
+        <p style="color: var(--text-muted); font-size: 1.2rem; max-width: 600px; margin: 0 auto;">
+            We combine technical expertise with business logic to deliver software that scales. Explore our core services below.
+        </p>
+    </header>
+
+    <!-- Service 1: Digital Growth -->
+    <section id="digital-growth" class="service-detail-section animate-on-scroll">
+        <div class="service-content">
+            <h2 class="service-title"><i class="fa-solid fa-bullhorn" style="color: var(--accent);"></i> Digital Growth</h2>
+            <p style="color: var(--text-muted); font-size: 1.1rem;">
+                It's not enough to just build a product; people need to see it. Our digital growth team specializes in data-driven marketing strategies that put your brand in front of the right audience. We handle everything from SEO to paid ad campaigns.
+            </p>
+            <ul class="service-features">
+                <li><i class="fa-solid fa-check"></i> Search Engine Optimization (SEO)</li>
+                <li><i class="fa-solid fa-check"></i> Social Media Management & Ads</li>
+                <li><i class="fa-solid fa-check"></i> Content Strategy & Copywriting</li>
+                <li><i class="fa-solid fa-check"></i> Brand Identity & Design</li>
+            </ul>
+            <a href="{% url 'contact' %}" class="btn btn-outline">Start Growing</a>
+        </div>
+        <div class="service-visual">
+            <div class="visual-card">
+                <i class="fa-solid fa-chart-line"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service 2: Mobile Apps -->
+    <section id="mobile-apps" class="service-detail-section animate-on-scroll">
+        <div class="service-content">
+            <h2 class="service-title"><i class="fa-solid fa-mobile-screen" style="color: var(--primary);"></i> Mobile Apps</h2>
+            <p style="color: var(--text-muted); font-size: 1.1rem;">
+                We build high-performance mobile applications for iOS and Android. Whether you need a native Swift/Kotlin app for maximum performance or a Flutter/React Native solution for cross-platform efficiency, we deliver pixel-perfect experiences.
+            </p>
+            <ul class="service-features">
+                <li><i class="fa-solid fa-check"></i> Native iOS & Android Development</li>
+                <li><i class="fa-solid fa-check"></i> Cross-Platform (Flutter / React Native)</li>
+                <li><i class="fa-solid fa-check"></i> App Store Optimization (ASO)</li>
+                <li><i class="fa-solid fa-check"></i> Maintenance & Updates</li>
+            </ul>
+            <a href="{% url 'contact' %}" class="btn btn-outline">Build Your App</a>
+        </div>
+        <div class="service-visual">
+            <div class="visual-card">
+                <i class="fa-brands fa-app-store-ios"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service 3: Retail Systems -->
+    <section id="retail-systems" class="service-detail-section animate-on-scroll">
+        <div class="service-content">
+            <h2 class="service-title"><i class="fa-solid fa-cart-shopping" style="color: var(--secondary);"></i> Retail Systems</h2>
+            <p style="color: var(--text-muted); font-size: 1.1rem;">
+                Modernize your brick-and-mortar business with our custom retail solutions. We build robust Point of Sale (POS) systems, inventory trackers, and supermarket teller software designed to handle high transaction volumes with zero downtime.
+            </p>
+            <ul class="service-features">
+                <li><i class="fa-solid fa-check"></i> Custom POS Software</li>
+                <li><i class="fa-solid fa-check"></i> Inventory Management Integration</li>
+                <li><i class="fa-solid fa-check"></i> Supermarket & Pharmacy Systems</li>
+                <li><i class="fa-solid fa-check"></i> Hardware Integration (Scanners/Printers)</li>
+            </ul>
+            <a href="{% url 'contact' %}" class="btn btn-outline">Upgrade Retail</a>
+        </div>
+        <div class="service-visual">
+            <div class="visual-card">
+                <i class="fa-solid fa-barcode"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service 4: AI Integration -->
+    <section id="ai-integration" class="service-detail-section animate-on-scroll">
+        <div class="service-content">
+            <h2 class="service-title"><i class="fa-solid fa-brain" style="color: #a855f7;"></i> AI Integration</h2>
+            <p style="color: var(--text-muted); font-size: 1.1rem;">
+                Future-proof your business by integrating Artificial Intelligence. We implement Machine Learning models for predictive analytics, natural language processing for chatbots, and automation scripts to handle repetitive tasks.
+            </p>
+            <ul class="service-features">
+                <li><i class="fa-solid fa-check"></i> Custom LLM Integration</li>
+                <li><i class="fa-solid fa-check"></i> Intelligent Chatbots</li>
+                <li><i class="fa-solid fa-check"></i> Business Process Automation</li>
+                <li><i class="fa-solid fa-check"></i> Data Analysis & Prediction</li>
+            </ul>
+            <a href="{% url 'contact' %}" class="btn btn-outline">Automate Now</a>
+        </div>
+        <div class="service-visual">
+            <div class="visual-card">
+                <i class="fa-solid fa-microchip"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service 5: Enterprise & Web -->
+    <section id="enterprise-web" class="service-detail-section animate-on-scroll">
+        <div class="service-content">
+            <h2 class="service-title"><i class="fa-solid fa-globe" style="color: var(--primary);"></i> Enterprise & Web</h2>
+            <p style="color: var(--text-muted); font-size: 1.1rem;">
+                For large-scale operations, off-the-shelf software isn't enough. We build bespoke Enterprise Resource Planning (ERP) systems, CRMs, and complex web platforms that align perfectly with your internal workflows.
+            </p>
+            <ul class="service-features">
+                <li><i class="fa-solid fa-check"></i> Custom ERP & CRM Development</li>
+                <li><i class="fa-solid fa-check"></i> React/Angular Web Applications</li>
+                <li><i class="fa-solid fa-check"></i> Cloud Architecture (AWS/Azure)</li>
+                <li><i class="fa-solid fa-check"></i> Legacy System Migration</li>
+            </ul>
+            <a href="{% url 'contact' %}" class="btn btn-outline">Scale Up</a>
+        </div>
+        <div class="service-visual">
+            <div class="visual-card">
+                <i class="fa-solid fa-server"></i>
+            </div>
+        </div>
+    </section>
+{% endblock %}

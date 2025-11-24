@@ -1,0 +1,290 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <!-- Hero Section -->
+    <section class="hero">
+        <!-- Dynamic Neural Network Background -->
+        <div class="hero-bg-animation">
+            <svg id="neural-network" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+                <!-- JS will populate this -->
+            </svg>
+        </div>
+
+        <div class="hero-content animate-on-scroll">
+            <span class="hero-badge">NAMKAATH INNOVATIONS</span>
+            <h1>We Build Any Software You Can Limitlessly<br><span>Imagine.</span></h1>
+            <p>From Enterprise Systems to AI Automation and Digital Marketing. We engineer end-to-end digital solutions that power the future of business.</p>
+            <div class="hero-btns">
+                <a href="{% url 'contact' %}" class="btn btn-primary" style="text-decoration: none; display: inline-block; text-align: center;">Get Started</a>
+                <a href="{% url 'services' %}" class="btn btn-outline" style="text-decoration: none; display: inline-block; text-align: center;">Our Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Marquee -->
+    <div class="tech-marquee">
+        <div class="tech-track">
+            <span class="tech-item">PYTHON</span>
+            <span class="tech-item">REACT</span>
+            <span class="tech-item">SEO</span>
+            <span class="tech-item">FLUTTER</span>
+            <span class="tech-item">TENSORFLOW</span>
+            <span class="tech-item">MARKETING</span>
+            <span class="tech-item">KUBERNETES</span>
+            <span class="tech-item">DOCKER</span>
+            <span class="tech-item">POSTGRESQL</span>
+            <span class="tech-item">JAVA</span>
+            <!-- Duplicated for infinite loop -->
+            <span class="tech-item">PYTHON</span>
+            <span class="tech-item">REACT</span>
+            <span class="tech-item">SEO</span>
+            <span class="tech-item">FLUTTER</span>
+            <span class="tech-item">TENSORFLOW</span>
+            <span class="tech-item">MARKETING</span>
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <section id="services" class="section">
+        <div class="section-header animate-on-scroll">
+            <h2>Our Expertise</h2>
+            <p style="color: var(--text-muted);">End-to-end development & growth services tailored to your goals.</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card animate-on-scroll" onclick="window.location.href='{% url 'services' %}#digital-growth'" style="cursor: pointer;">
+                <div class="service-icon"><i class="fa-solid fa-bullhorn"></i></div>
+                <h3>Digital Growth</h3>
+                <p>Comprehensive Digital Marketing, SEO, and Social Media strategies to maximize your online exposure and reach.</p>
+            </div>
+
+            <div class="service-card animate-on-scroll" onclick="window.location.href='{% url 'services' %}#mobile-apps'" style="cursor: pointer;">
+                <div class="service-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+                <h3>Mobile Apps</h3>
+                <p>Native iOS & Android applications built with Swift, Kotlin, or Flutter for seamless user experiences.</p>
+            </div>
+
+            <div class="service-card animate-on-scroll" onclick="window.location.href='{% url 'services' %}#retail-systems'" style="cursor: pointer;">
+                <div class="service-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+                <h3>Retail Systems</h3>
+                <p>Complete POS solutions, inventory management, and supermarket teller systems designed for speed.</p>
+            </div>
+
+            <div class="service-card animate-on-scroll" onclick="window.location.href='{% url 'services' %}#ai-integration'" style="cursor: pointer;">
+                <div class="service-icon"><i class="fa-solid fa-brain"></i></div>
+                <h3>AI Integration</h3>
+                <p>Leverage Machine Learning and automation to reduce costs and predict business trends intelligently.</p>
+            </div>
+
+            <div class="service-card animate-on-scroll" onclick="window.location.href='{% url 'services' %}#enterprise-web'" style="cursor: pointer;">
+                <div class="service-icon"><i class="fa-solid fa-desktop"></i></div>
+                <h3>Desktop Apps</h3>
+                <p>High-performance software for Windows and macOS, ensuring offline capability and robustness.</p>
+            </div>
+
+            <div class="service-card animate-on-scroll" onclick="window.location.href='{% url 'services' %}#enterprise-web'" style="cursor: pointer;">
+                <div class="service-icon"><i class="fa-solid fa-server"></i></div>
+                <h3>Enterprise Software</h3>
+                <p>Scalable ERPs and CRMs that streamline internal processes and manage complex data flows.</p>
+            </div>
+            
+             <div class="service-card animate-on-scroll" onclick="window.location.href='{% url 'services' %}#enterprise-web'" style="cursor: pointer;">
+                <div class="service-icon"><i class="fa-solid fa-globe"></i></div>
+                <h3>Web Applications</h3>
+                <p>Responsive, secure, and fast web platforms built on modern frameworks like React and Angular.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries Section -->
+    <section id="industries" class="section industries">
+        <div class="section-header animate-on-scroll">
+            <h2>Industries We Serve</h2>
+            <p style="color: var(--text-muted);">Delivering value across diverse sectors.</p>
+        </div>
+        
+        <div class="industry-tags animate-on-scroll">
+            <div class="tag"><i class="fa-solid fa-heart-pulse"></i> Healthcare</div>
+            <div class="tag"><i class="fa-solid fa-sack-dollar"></i> Finance & Fintech</div>
+            <div class="tag"><i class="fa-solid fa-truck-fast"></i> Logistics</div>
+            <div class="tag"><i class="fa-solid fa-store"></i> Retail & E-commerce</div>
+            <div class="tag"><i class="fa-solid fa-graduation-cap"></i> Education</div>
+            <div class="tag"><i class="fa-solid fa-building"></i> Real Estate</div>
+            <div class="tag"><i class="fa-solid fa-utensils"></i> Hospitality</div>
+            <div class="tag"><i class="fa-solid fa-hashtag"></i> Digital Media</div>
+        </div>
+    </section>
+
+    <!-- Portfolio / Work Section -->
+    <section id="portfolio" class="section" style="background: var(--bg-surface);">
+        <div class="section-header animate-on-scroll">
+            <h2>Featured Work</h2>
+            <p style="color: var(--text-muted);">A glimpse into our recent success stories.</p>
+        </div>
+
+        <div class="services-grid">
+            <!-- Project 1 -->
+            <div class="service-card animate-on-scroll" onclick="window.location.href='{% url 'portfolio' %}'" style="cursor: pointer; padding: 0; overflow: hidden; border: 1px solid var(--border);">
+                <div style="height: 200px; background: #1e293b; position: relative;">
+                    <img src="https://placehold.co/600x400/1e293b/ffffff?text=Fintech+App" alt="Project" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.8;">
+                </div>
+                <div style="padding: 1.5rem;">
+                    <h3 style="margin-bottom: 0.5rem;">SwiftPay Wallet</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">A secure, high-speed mobile wallet enabling cross-border payments.</p>
+                    <span style="font-size: 0.8rem; color: var(--primary); font-weight: 600;">Fintech • Mobile</span>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="service-card animate-on-scroll" onclick="window.location.href='{% url 'portfolio' %}'" style="cursor: pointer; padding: 0; overflow: hidden; border: 1px solid var(--border);">
+                <div style="height: 200px; background: #0f172a; position: relative;">
+                    <img src="https://placehold.co/600x400/0f172a/ffffff?text=E-Commerce" alt="Project" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.8;">
+                </div>
+                <div style="padding: 1.5rem;">
+                    <h3 style="margin-bottom: 0.5rem;">LuxeFashion</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">Scalable e-commerce platform with AI recommendations.</p>
+                    <span style="font-size: 0.8rem; color: var(--primary); font-weight: 600;">Retail • Web</span>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="service-card animate-on-scroll" onclick="window.location.href='{% url 'portfolio' %}'" style="cursor: pointer; padding: 0; overflow: hidden; border: 1px solid var(--border);">
+                <div style="height: 200px; background: #172554; position: relative;">
+                    <img src="https://placehold.co/600x400/172554/ffffff?text=MedTrack" alt="Project" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.8;">
+                </div>
+                <div style="padding: 1.5rem;">
+                    <h3 style="margin-bottom: 0.5rem;">MedTrack CRM</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">HIPAA-compliant patient management system.</p>
+                    <span style="font-size: 0.8rem; color: var(--primary); font-weight: 600;">Healthcare • Enterprise</span>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem;" class="animate-on-scroll">
+            <a href="{% url 'portfolio' %}" class="btn btn-outline">View All Projects</a>
+        </div>
+    </section>
+
+    <!-- Outlet Team Section -->
+    <section id="team" class="section">
+        <div class="section-header animate-on-scroll">
+            <h2>Our Team</h2>
+            <p style="color: var(--text-muted);">The minds behind the code and the strategy.</p>
+        </div>
+
+        <div class="team-grid">
+            <!-- Team Member 1 -->
+            <div class="team-member animate-on-scroll">
+                <div class="member-img">
+                    <img src="https://placehold.co/150x150/2563eb/ffffff?text=CEO" alt="CEO">
+                </div>
+                <h3>Buay John</h3>
+                <span>CEO & Lead Architect</span>
+                <div class="social-links">
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                </div>
+            </div>
+
+            <!-- Team Member 2 -->
+            <div class="team-member animate-on-scroll" style="transition-delay: 0.1s;">
+                <div class="member-img">
+                    <img src="https://placehold.co/150x150/06b6d4/ffffff?text=CTO" alt="CTO">
+                </div>
+                <h3>Abraham Adum</h3>
+                <span>Head of Technology</span>
+                <div class="social-links">
+                    <a href="#"><i class="fa-brands fa-github"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+            </div>
+
+            <!-- Team Member 3 -->
+            <div class="team-member animate-on-scroll" style="transition-delay: 0.2s;">
+                <div class="member-img">
+                    <img src="https://placehold.co/150x150/f59e0b/ffffff?text=MKT" alt="Marketing">
+                </div>
+                <h3>Lam John</h3>
+                <span>Head of Digital Marketing</span>
+                <div class="social-links">
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+            </div>
+
+            <!-- Team Member 4 -->
+            <div class="team-member animate-on-scroll" style="transition-delay: 0.3s;">
+                <div class="member-img">
+                    <img src="https://placehold.co/150x150/64748b/ffffff?text=DEV" alt="Dev">
+                </div>
+                <h3>John Marit</h3>
+                <span>Lead Developer</span>
+                <div class="social-links">
+                    <a href="#"><i class="fa-solid fa-code"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us / Value Prop -->
+    <section class="section">
+        <div class="section-header animate-on-scroll">
+            <h2>Why NAMKAATH?</h2>
+        </div>
+        <div class="services-grid">
+            <div class="service-card animate-on-scroll" style="border-left: 4px solid var(--primary);">
+                <h3><i class="fa-solid fa-rocket" style="color: var(--primary);"></i> Speed to Market</h3>
+                <p>Agile methodology ensures we ship features fast without compromising quality.</p>
+            </div>
+            <div class="service-card animate-on-scroll" style="border-left: 4px solid var(--secondary);">
+                <h3><i class="fa-solid fa-shield-halved" style="color: var(--secondary);"></i> Enterprise Security</h3>
+                <p>Bank-grade encryption and security protocols standard in all our builds.</p>
+            </div>
+            <div class="service-card animate-on-scroll" style="border-left: 4px solid var(--accent);">
+                <h3><i class="fa-solid fa-chart-line" style="color: var(--accent);"></i> Online Exposure</h3>
+                <p>We don't just build; we ensure your brand is seen through expert digital marketing.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="contact-container animate-on-scroll">
+            <div class="contact-info">
+                <h2>Ready to Innovate?</h2>
+                <p>Get a free consultation and technical proposal for your next big project or marketing campaign.</p>
+                <div style="margin-top: auto;">
+                    <p><i class="fa-solid fa-envelope"></i> info@namkaath.com</p>
+                    <p><i class="fa-solid fa-phone"></i> +2110900000000</p>
+                    <p><i class="fa-solid fa-location-dot"></i> Airport Road, Juba</p>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form onsubmit="event.preventDefault(); alert('Message sent! We will contact you shortly.');">
+                    <div class="form-group">
+                        <input type="text" class="form-input" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-input" placeholder="Email Address" required>
+                    </div>
+                    <div class="form-group">
+                        <select class="form-input" style="cursor: pointer;">
+                            <option value="" style="color: black;">Select Service</option>
+                            <option value="mobile" style="color: black;">Mobile App</option>
+                            <option value="marketing" style="color: black;">Digital Marketing & SEO</option>
+                            <option value="web" style="color: black;">Web App</option>
+                            <option value="ai" style="color: black;">AI Solution</option>
+                            <option value="retail" style="color: black;">Retail System</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-input" rows="4" placeholder="Project Details"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock %}

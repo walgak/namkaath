@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}NAMKAATH | Future-Ready Software Solutions{% endblock %}</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body data-theme="dark">
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <a href="{% url 'home' %}" class="logo">
+            NAMKAATH
+        </a>
+        <div class="nav-links" id="navLinks">
+            <a href="{% url 'services' %}">Services</a>
+            <a href="{% url 'home' %}#industries">Industries</a>
+            <a href="{% url 'portfolio' %}">Work</a>
+            <a href="{% url 'home' %}#team">Team</a>
+            <a href="{% url 'contact' %}">Contact</a>
+            <button class="btn btn-primary" onclick="window.location.href='{% url 'contact' %}'">Get Quote</button>
+            <div class="theme-toggle" id="themeToggle">
+                <i class="fa-regular fa-sun"></i>
+            </div>
+        </div>
+        <div class="mobile-menu-btn" id="mobileMenu">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT BLOCK -->
+    {% block content %}
+    {% endblock %}
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo" style="margin-bottom: 1rem;">NAMKAATH</div>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Where Every Step Leads to Innovation.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="{% url 'services' %}#mobile-apps">Mobile Development</a></li>
+                    <li><a href="{% url 'services' %}#digital-growth">Digital Marketing</a></li>
+                    <li><a href="{% url 'services' %}#ai-integration">AI Solutions</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'home' %}#team">Team</a></li>
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023 NAMKAATH Solutions. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Main JavaScript File -->
+    <script src="{% static 'script.js' %}"></script>
+    
+    <!-- Page Specific Scripts Block -->
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
