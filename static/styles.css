@@ -94,7 +94,7 @@ img { max-width: 100%; display: block; }
     border: none;
     transition: all 0.3s ease;
     font-size: 0.95rem;
-    white-space: nowrap; /* Prevents text wrapping inside buttons */
+    white-space: nowrap; 
 }
 
 .btn-primary {

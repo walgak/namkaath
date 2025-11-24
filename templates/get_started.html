@@ -13,52 +13,45 @@
     <!-- Main Form Area -->
     <div class="form-container">
         
-        <!-- Left: Project Details -->
+        <!-- Left: Project Details Form -->
         <div class="form-card animate-on-scroll">
             <h3 class="form-section-title"><i class="fa-solid fa-lightbulb"></i> Describe Your Idea</h3>
-            <form onsubmit="event.preventDefault(); alert('Request submitted! We will confirm your appointment shortly.');">
+            
+            {% if success %}
+                <div style="background: rgba(16, 185, 129, 0.2); border: 1px solid #10b981; padding: 1rem; border-radius: 10px; color: #10b981; text-align: center; margin-bottom: 1rem;">
+                    <i class="fa-solid fa-check-circle"></i> Proposal submitted successfully! We will contact you soon.
+                </div>
+            {% endif %}
+
+            <form method="post">
+                {% csrf_token %}
                 <div class="input-grid">
                     <div>
                         <label class="custom-label">First Name</label>
-                        <input type="text" class="form-input" placeholder="John" required>
+                        {{ form.first_name }}
                     </div>
                     <div>
                         <label class="custom-label">Last Name</label>
-                        <input type="text" class="form-input" placeholder="Doe" required>
+                        {{ form.last_name }}
                     </div>
                     <div class="full-width">
                         <label class="custom-label">Email Address</label>
-                        <input type="email" class="form-input" placeholder="john@example.com" required>
+                        {{ form.email }}
                     </div>
                     <div>
                         <label class="custom-label">Project Type</label>
-                        <select class="form-input">
-                            <option>Mobile App</option>
-                            <option>Web Platform</option>
-                            <option>AI Integration</option>
-                            <option>Digital Marketing</option>
-                            <option>Retail System</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="custom-label">Estimated Budget</label>
-                        <select class="form-input">
-                            <option>$1k - $5k</option>
-                            <option>$5k - $10k</option>
-                            <option>$10k - $50k</option>
-                            <option>$50k+</option>
-                        </select>
+                        {{ form.project_type }}
                     </div>
                     <div class="full-width">
                         <label class="custom-label">Project Details</label>
-                        <textarea class="form-input" rows="6" placeholder="Describe your core features, target audience, and goals..."></textarea>
+                        {{ form.details }}
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Submit Proposal</button>
             </form>
         </div>
 
-        <!-- Right: Appointment Booking -->
+        <!-- Right: Appointment Booking (Static for now) -->
         <div class="form-card animate-on-scroll" style="height: fit-content;">
             <h3 class="form-section-title"><i class="fa-regular fa-calendar-check"></i> Book a Call</h3>
             
@@ -70,12 +63,10 @@
                         <i class="fa-solid fa-chevron-right" style="cursor: pointer;"></i>
                     </div>
                 </div>
-                <!-- Simple visual representation of dates -->
                 <div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; text-align: center; font-size: 0.8rem; color: var(--text-muted);">
                     <span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span>
                     <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
                     <span>8</span><span>9</span><span style="color: var(--primary); font-weight: bold;">10</span><span>11</span><span>12</span><span>13</span><span>14</span>
-                    <!-- ... -->
                 </div>
             </div>
 
@@ -101,7 +92,6 @@
 
 {% block extra_js %}
     <script>
-        // Simple logic for selecting time slots
         const slots = document.querySelectorAll('.time-slot');
         slots.forEach(slot => {
             slot.addEventListener('click', () => {

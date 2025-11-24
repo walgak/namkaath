@@ -20,264 +20,60 @@
         <button class="filter-btn" data-filter="ai">AI & Data</button>
     </div>
 
-    <!-- Projects Grid -->
+    <!-- Projects Grid (Dynamic) -->
     <div class="projects-grid" id="projectsGrid">
-        
-        <!-- Project 1: Mobile -->
-        <div class="project-card animate-on-scroll" data-category="mobile">
+        {% for project in projects %}
+        <div class="project-card animate-on-scroll" data-category="{{ project.category }}">
             <div class="project-img">
-                <img src="https://placehold.co/600x400/1e293b/ffffff?text=Fintech+App" alt="Fintech Project">
+                {% if project.image %}
+                    <img src="{{ project.image.url }}" alt="{{ project.title }}">
+                {% else %}
+                    <!-- Fallback image if none uploaded -->
+                    <img src="https://placehold.co/600x400/1e293b/ffffff?text={{ project.title }}" alt="Project">
+                {% endif %}
                 <div class="project-overlay">
-                    <a href="#" class="btn btn-primary"><i class="fa-solid fa-link"></i> View Live</a>
+                    {% if project.link %}
+                    <a href="{{ project.link }}" target="_blank" class="btn btn-primary"><i class="fa-solid fa-link"></i> View Project</a>
+                    {% else %}
+                    <span class="btn btn-outline" style="color: white; border-color: white;">Internal Project</span>
+                    {% endif %}
                 </div>
             </div>
             <div class="project-content">
                 <div class="project-tags">
-                    <span class="mini-tag">Mobile</span>
-                    <span class="mini-tag">Fintech</span>
+                    <span class="mini-tag">{{ project.get_category_display }}</span>
                 </div>
-                <h3 class="project-title">SwiftPay Wallet</h3>
-                <p class="project-desc">A secure, high-speed mobile wallet enabling cross-border payments with 99.9% uptime.</p>
-                <p style="font-size: 0.85rem; color: var(--text-muted);"><i class="fa-solid fa-code"></i> Flutter, Node.js, AWS</p>
+                <h3 class="project-title">{{ project.title }}</h3>
+                <p class="project-desc">{{ project.description|truncatechars:100 }}</p>
+                <p style="font-size: 0.85rem; color: var(--text-muted);"><i class="fa-solid fa-code"></i> {{ project.tech_stack }}</p>
             </div>
         </div>
-
-        <!-- Project 2: Web -->
-        <div class="project-card animate-on-scroll" data-category="web">
-            <div class="project-img">
-                <img src="https://placehold.co/600x400/0f172a/ffffff?text=E-Commerce" alt="E-Commerce Project">
-                <div class="project-overlay">
-                    <a href="#" class="btn btn-primary"><i class="fa-solid fa-link"></i> Visit Site</a>
-                </div>
-            </div>
-            <div class="project-content">
-                <div class="project-tags">
-                    <span class="mini-tag">Web</span>
-                    <span class="mini-tag">Retail</span>
-                </div>
-                <h3 class="project-title">LuxeFashion Store</h3>
-                <p class="project-desc">A scalable e-commerce platform handling 50k+ products with AI-driven recommendations.</p>
-                <p style="font-size: 0.85rem; color: var(--text-muted);"><i class="fa-solid fa-code"></i> React, Shopify API, Python</p>
-            </div>
-        </div>
-
-        <!-- Project 3: Web (Enterprise) -->
-        <div class="project-card animate-on-scroll" data-category="web">
-            <div class="project-img">
-                <img src="https://placehold.co/600x400/172554/ffffff?text=MedTrack+System" alt="Healthcare Project">
-                <div class="project-overlay">
-                    <a href="#" class="btn btn-primary"><i class="fa-solid fa-file-lines"></i> Case Study</a>
-                </div>
-            </div>
-            <div class="project-content">
-                <div class="project-tags">
-                    <span class="mini-tag">Web</span>
-                    <span class="mini-tag">Healthcare</span>
-                </div>
-                <h3 class="project-title">MedTrack Hospital CRM</h3>
-                <p class="project-desc">An internal system for managing patient records securely, compliant with HIPAA standards.</p>
-                <p style="font-size: 0.85rem; color: var(--text-muted);"><i class="fa-solid fa-code"></i> Angular, .NET Core, SQL</p>
-            </div>
-        </div>
-
-        <!-- Project 4: AI -->
-        <div class="project-card animate-on-scroll" data-category="ai">
-            <div class="project-img">
-                <img src="https://placehold.co/600x400/312e81/ffffff?text=AI+Analytics" alt="AI Project">
-                <div class="project-overlay">
-                    <a href="#" class="btn btn-primary"><i class="fa-solid fa-link"></i> View Demo</a>
-                </div>
-            </div>
-            <div class="project-content">
-                <div class="project-tags">
-                    <span class="mini-tag">AI</span>
-                    <span class="mini-tag">SaaS</span>
-                </div>
-                <h3 class="project-title">PredictFlow AI</h3>
-                <p class="project-desc">Predictive analytics dashboard for logistics companies to optimize supply chain routes.</p>
-                <p style="font-size: 0.85rem; color: var(--text-muted);"><i class="fa-solid fa-code"></i> Python, TensorFlow, React</p>
-            </div>
-        </div>
-
-        <!-- Project 5: Mobile -->
-        <div class="project-card animate-on-scroll" data-category="mobile">
-            <div class="project-img">
-                <img src="https://placehold.co/600x400/0e7490/ffffff?text=FitTrack+Pro" alt="Fitness App">
-                <div class="project-overlay">
-                    <a href="#" class="btn btn-primary"><i class="fa-solid fa-link"></i> View App</a>
-                </div>
-            </div>
-            <div class="project-content">
-                <div class="project-tags">
-                    <span class="mini-tag">Mobile</span>
-                    <span class="mini-tag">Health</span>
-                </div>
-                <h3 class="project-title">FitTrack Pro</h3>
-                <p class="project-desc">Personalized workout and nutrition planner with real-time wearable integration.</p>
-                <p style="font-size: 0.85rem; color: var(--text-muted);"><i class="fa-solid fa-code"></i> React Native, Firebase</p>
-            </div>
-        </div>
-
-        <!-- Project 6: Web -->
-        <div class="project-card animate-on-scroll" data-category="web">
-            <div class="project-img">
-                <img src="https://placehold.co/600x400/b91c1c/ffffff?text=Estate+Platform" alt="Real Estate App">
-                <div class="project-overlay">
-                    <a href="#" class="btn btn-primary"><i class="fa-solid fa-link"></i> Visit Site</a>
-                </div>
-            </div>
-            <div class="project-content">
-                <div class="project-tags">
-                    <span class="mini-tag">Web</span>
-                    <span class="mini-tag">Real Estate</span>
-                </div>
-                <h3 class="project-title">EstateView 360</h3>
-                <p class="project-desc">A property listing platform featuring 3D virtual tours and instant agent booking.</p>
-                <p style="font-size: 0.85rem; color: var(--text-muted);"><i class="fa-solid fa-code"></i> Vue.js, Laravel, Mapbox</p>
-            </div>
-        </div>
-
-        <!-- Project 7: AI -->
-        <div class="project-card animate-on-scroll" data-category="ai">
-            <div class="project-img">
-                <img src="https://placehold.co/600x400/4c1d95/ffffff?text=AutoSupport+Bot" alt="Chatbot">
-                <div class="project-overlay">
-                    <a href="#" class="btn btn-primary"><i class="fa-solid fa-link"></i> View Demo</a>
-                </div>
-            </div>
-            <div class="project-content">
-                <div class="project-tags">
-                    <span class="mini-tag">AI</span>
-                    <span class="mini-tag">Support</span>
-                </div>
-                <h3 class="project-title">AutoSupport Gen2</h3>
-                <p class="project-desc">A GPT-4 powered customer service agent that resolves 70% of queries automatically.</p>
-                <p style="font-size: 0.85rem; color: var(--text-muted);"><i class="fa-solid fa-code"></i> Python, OpenAI API</p>
-            </div>
-        </div>
-
-        <!-- Project 8: Mobile -->
-        <div class="project-card animate-on-scroll" data-category="mobile">
-            <div class="project-img">
-                <img src="https://placehold.co/600x400/047857/ffffff?text=FoodDash" alt="Food Delivery">
-                <div class="project-overlay">
-                    <a href="#" class="btn btn-primary"><i class="fa-solid fa-link"></i> View App</a>
-                </div>
-            </div>
-            <div class="project-content">
-                <div class="project-tags">
-                    <span class="mini-tag">Mobile</span>
-                    <span class="mini-tag">Delivery</span>
-                </div>
-                <h3 class="project-title">FoodDash</h3>
-                <p class="project-desc">Hyper-local food delivery app with real-time driver tracking and contactless payment.</p>
-                <p style="font-size: 0.85rem; color: var(--text-muted);"><i class="fa-solid fa-code"></i> Swift, Google Maps API</p>
-            </div>
-        </div>
-
-        <!-- Project 9: Web -->
-        <div class="project-card animate-on-scroll" data-category="web">
-            <div class="project-img">
-                <img src="https://placehold.co/600x400/ea580c/ffffff?text=Crypto+Dash" alt="Crypto Dashboard">
-                <div class="project-overlay">
-                    <a href="#" class="btn btn-primary"><i class="fa-solid fa-link"></i> View Live</a>
-                </div>
-            </div>
-            <div class="project-content">
-                <div class="project-tags">
-                    <span class="mini-tag">Web</span>
-                    <span class="mini-tag">Finance</span>
-                </div>
-                <h3 class="project-title">CoinView Pro</h3>
-                <p class="project-desc">Real-time cryptocurrency trading dashboard with advanced charting and portfolio tracking.</p>
-                <p style="font-size: 0.85rem; color: var(--text-muted);"><i class="fa-solid fa-code"></i> React, D3.js, Node.js</p>
-            </div>
-        </div>
-         
-         <!-- Project 10: AI -->
-        <div class="project-card animate-on-scroll" data-category="ai">
-            <div class="project-img">
-                <img src="https://placehold.co/600x400/be185d/ffffff?text=Sentiment+Analyzer" alt="Data Analysis">
-                <div class="project-overlay">
-                    <a href="#" class="btn btn-primary"><i class="fa-solid fa-link"></i> View Demo</a>
-                </div>
-            </div>
-            <div class="project-content">
-                <div class="project-tags">
-                    <span class="mini-tag">AI</span>
-                    <span class="mini-tag">Marketing</span>
-                </div>
-                <h3 class="project-title">BrandSentiment</h3>
-                <p class="project-desc">Social media listening tool that analyzes brand sentiment in real-time using NLP.</p>
-                <p style="font-size: 0.85rem; color: var(--text-muted);"><i class="fa-solid fa-code"></i> Python, NLTK, AWS</p>
-            </div>
-        </div>
+        {% empty %}
+        <p style="color: var(--text-muted); text-align: center; grid-column: 1/-1;">No projects added yet. Visit the Admin panel to add some!</p>
+        {% endfor %}
     </div>
 
-    <!-- Testimonials Section -->
+    <!-- Testimonials Section (Static for now) -->
     <section class="testimonials-section">
         <div class="section-header animate-on-scroll">
             <h2>What Clients Say</h2>
             <p style="color: var(--text-muted);">Trusted by startups and enterprises alike.</p>
         </div>
-
-        <div class="testimonial-grid">
+        <!-- ... existing testimonials HTML ... -->
+        <!-- (Keep the testimonials HTML from previous file here) -->
+         <div class="testimonial-grid">
             <!-- Review 1 -->
             <div class="testimonial-card animate-on-scroll">
                 <i class="fa-solid fa-quote-left quote-icon"></i>
                 <div class="stars">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                 </div>
-                <p style="color: var(--text-main); font-style: italic;">"NAMKAATH transformed our outdated system into a sleek, high-performance web app. Their attention to detail and speed is unmatched."</p>
+                <p style="color: var(--text-main); font-style: italic;">"NAMKAATH transformed our outdated system into a sleek, high-performance web app."</p>
                 <div class="client-info">
                     <img src="https://placehold.co/50x50/2563eb/ffffff?text=JS" class="client-avatar" alt="Client">
                     <div>
                         <h4 style="font-size: 1rem; margin: 0;">James Sullivan</h4>
                         <span style="font-size: 0.85rem; color: var(--text-muted);">CTO, FinCorp</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Review 2 -->
-            <div class="testimonial-card animate-on-scroll" style="transition-delay: 0.1s;">
-                <i class="fa-solid fa-quote-left quote-icon"></i>
-                <div class="stars">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star-half-stroke"></i>
-                </div>
-                <p style="color: var(--text-main); font-style: italic;">"The mobile app they built for our retail chain increased customer retention by 40% in just three months. Highly recommended."</p>
-                <div class="client-info">
-                    <img src="https://placehold.co/50x50/06b6d4/ffffff?text=AL" class="client-avatar" alt="Client">
-                    <div>
-                        <h4 style="font-size: 1rem; margin: 0;">Amanda Lee</h4>
-                        <span style="font-size: 0.85rem; color: var(--text-muted);">Director, ShopTrend</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Review 3 -->
-            <div class="testimonial-card animate-on-scroll" style="transition-delay: 0.2s;">
-                <i class="fa-solid fa-quote-left quote-icon"></i>
-                <div class="stars">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                </div>
-                <p style="color: var(--text-main); font-style: italic;">"Their AI integration saved us hundreds of man-hours per week. The team at NAMKAATH really understands business logic."</p>
-                <div class="client-info">
-                    <img src="https://placehold.co/50x50/f59e0b/ffffff?text=MR" class="client-avatar" alt="Client">
-                    <div>
-                        <h4 style="font-size: 1rem; margin: 0;">Michael Ross</h4>
-                        <span style="font-size: 0.85rem; color: var(--text-muted);">CEO, LogisticsPro</span>
                     </div>
                 </div>
             </div>
@@ -295,23 +91,18 @@
 {% endblock %}
 
 {% block extra_js %}
-    <!-- Filter Script (Page Specific) -->
     <script>
         const filterBtns = document.querySelectorAll('.filter-btn');
         const projects = document.querySelectorAll('.project-card');
 
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                // Remove active class from all buttons
                 filterBtns.forEach(b => b.classList.remove('active'));
-                // Add active class to clicked button
                 btn.classList.add('active');
-
                 const filterValue = btn.getAttribute('data-filter');
 
                 projects.forEach(project => {
                     const category = project.getAttribute('data-category');
-
                     if (filterValue === 'all' || filterValue === category) {
                         project.classList.remove('hide');
                         project.classList.add('show');
