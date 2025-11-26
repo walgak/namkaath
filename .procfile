@@ -1,0 +1,20 @@
+git add Procfile
+git commit -m "Fix Procfile to explicitly include :application for Gunicorn"
+git push origin main
+
+Render should automatically detect the new push and attempt a redeploy.
+
+***
+
+### **Option 2: Fix the Render Dashboard Setting (If Option 1 fails)**
+
+If Render ignores the `Procfile` for some reason, you can manually fix the command directly in the Render dashboard:
+
+1.  Go to your **namkaath** Web Service dashboard on Render.
+2.  Go to the **Settings** tab.
+3.  Scroll down to the **Start Command** field.
+4.  Replace whatever is there with the correct command:
+        gunicorn namkaath.wsgi:application
+    5.  Click **Save Changes**.
+
+This should trigger a new deployment which will now start successfully! Let me know if the site is up after the redeploy.
