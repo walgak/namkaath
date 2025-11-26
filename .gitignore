@@ -1,0 +1,25 @@
+Django
+
+*.log
+*.pot
+*.pyc
+pycache/
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+media/
+
+Virtual Environment
+
+venv/
+env/
+.env
+
+Static files (Collected by the server, we don't need to upload these)
+
+staticfiles/
+
+IDE settings
+
+.vscode/
+.idea/
