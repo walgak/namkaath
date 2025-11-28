@@ -11,7 +11,7 @@ updateIcon(savedTheme);
 themeToggle.addEventListener('click', () => {
     const currentTheme = body.getAttribute('data-theme');
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-    
+
     body.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
     updateIcon(newTheme);
@@ -86,7 +86,7 @@ const svg = document.getElementById('neural-network');
 // Use 800x600 as base coordinate system (matching viewBox)
 const width = 800;
 const height = 600;
-const nodeCount = 40; 
+const nodeCount = 40;
 const nodes = [];
 let lines = [];
 
@@ -94,11 +94,16 @@ class Node {
     constructor() {
         this.x = Math.random() * width;
         this.y = Math.random() * height;
+
+        // Adjust speed based on screen width
+        const speedMultiplier = window.innerWidth < 768 ? 0.6 : 0.2;
+
         // Very slow velocity for smooth drift
-        this.vx = (Math.random() - 0.5) * 0.2; 
-        this.vy = (Math.random() - 0.5) * 0.2;
+        this.vx = (Math.random() - 0.5) * speedMultiplier;
+        this.vy = (Math.random() - 0.5) * speedMultiplier;
+
         this.radius = 2 + Math.random() * 3;
-        
+
         this.element = document.createElementNS("http://www.w3.org/2000/svg", "circle");
         this.element.setAttribute("r", this.radius);
         this.element.classList.add("neural-node");
@@ -153,13 +158,13 @@ function animate() {
                 line.setAttribute("y2", nodes[j].y);
                 line.classList.add("neural-line");
                 line.style.stroke = "var(--line-color)";
-                
+
                 // Fade out line based on distance
                 const opacity = 1 - (dist / 120);
-                line.style.opacity = opacity * 0.5; 
+                line.style.opacity = opacity * 0.5;
 
                 // Insert before nodes so dots are on top
-                svg.insertBefore(line, nodes[0].element); 
+                svg.insertBefore(line, nodes[0].element);
                 lines.push(line);
             }
         }
